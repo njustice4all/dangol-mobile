@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "629044640612",
+    "firebase_url": "https://bossapp-aty.firebaseio.com",
+    "project_id": "bossapp-aty",
+    "storage_bucket": "bossapp-aty.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629044640612:android:79b55248184d0602",
+        "android_client_info": {
+          "package_name": "kr.aty.bossapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "629044640612-6o2voemt63l2r8029tv5kmcucl9fvpna.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-3-yjUDgySc4bQJfYa0lTAU4U2e_lsig"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
