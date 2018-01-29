@@ -21,16 +21,6 @@ class MainWebview extends Component<{}> {
     isLoading: true,
   };
 
-  // TODO: 자동로그인시 유저정보와 coords데이터 가져와야함
-  componentDidMount = async () => {
-    const user = await AsyncStorage.getItem('user');
-    const parseUser = JSON.parse(user);
-
-    if (parseUser) {
-      console.log(parseUser);
-    }
-  };
-
   componentWillReceiveProps = nextProps => {
     if (nextProps.drawer) {
       this.drawer.openDrawer();

@@ -6,6 +6,7 @@ import { auth } from './auth';
 import { ui } from './ui';
 import { setting } from './setting';
 import nav from './navigation';
+import { authentication } from './authentication';
 
 export default combineReducers({
   router,
@@ -14,4 +15,5 @@ export default combineReducers({
   ui,
   setting,
   nav,
+  authentication,
 });
