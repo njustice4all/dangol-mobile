@@ -50,7 +50,7 @@ class SideMenu extends Component {
             <Text style={styles.listTitle}>업소 운영관리</Text>
           </View>
           <View style={[styles.content, { flexDirection: 'column' }]}>
-            <TouchableOpacity style={styles.subTitleWrapper} onPress={goUserWebview}>
+            <TouchableOpacity style={styles.subTitleWrapper} onPress={onChangeRoute('/ceo/shop')}>
               <Text style={styles.subTitle}>업소 정보 수정</Text>
             </TouchableOpacity>
             <TouchableOpacity

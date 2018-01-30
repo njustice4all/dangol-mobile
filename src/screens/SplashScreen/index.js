@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 
 import { initialApp } from '../../actions/auth';
 
+import FCMController from '../../FCM.Controller';
+
 class SplashScreen extends Component {
   componentDidMount = () => {
     // TODO:
     // initialApp(set token, loading) 해야함
+    // initialApp() 대신 token받아오고 몇초후에 afterInitialized실행 - good
     this.props.initialApp();
     this.timeout = setTimeout(() => {
       this.afterInitialized();
@@ -21,12 +24,7 @@ class SplashScreen extends Component {
 
   afterInitialized = () => {
     const navigateTo = routeName => {
-      const actionToDispatch = NavigationActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({ routeName })],
-      });
-
-      this.props.navigation.dispatch(actionToDispatch);
+      this.props.navigation.dispatch(NavigationActions.navigate({ routeName }));
     };
 
     if (this.props.authentication.isLogin) {
@@ -38,9 +36,12 @@ class SplashScreen extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>앱 로딩</Text>
-      </View>
+      <FCMController>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <StatusBar hidden />
+          <Text>앱 로딩</Text>
+        </View>
+      </FCMController>
     );
   }
 }

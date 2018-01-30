@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
-import FCMController from '../../FCM.Controller';
 import styles from './styles';
 
 class Auth extends Component {
@@ -24,37 +23,35 @@ class Auth extends Component {
 
   render() {
     return (
-      <FCMController>
-        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-          <View style={styles.container}>
-            <StatusBar hidden />
-            <View style={styles.inner}>
-              <View>
-                <TextInput
-                  placeholder="아이디"
-                  underlineColorAndroid="transparent"
-                  style={styles.textInput}
-                />
-              </View>
-              <View>
-                <TextInput
-                  placeholder="비밀번호"
-                  underlineColorAndroid="transparent"
-                  secureTextEntry
-                  style={styles.textInput}
-                />
-              </View>
-              <TouchableNativeFeedback
-                onPress={this.onLogin}
-                background={TouchableNativeFeedback.SelectableBackground()}>
-                <View style={styles.button}>
-                  <Text style={styles.text}>로그인</Text>
-                </View>
-              </TouchableNativeFeedback>
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        <View style={styles.container}>
+          <StatusBar hidden />
+          <View style={styles.inner}>
+            <View>
+              <TextInput
+                placeholder="아이디"
+                underlineColorAndroid="transparent"
+                style={styles.textInput}
+              />
             </View>
+            <View>
+              <TextInput
+                placeholder="비밀번호"
+                underlineColorAndroid="transparent"
+                secureTextEntry
+                style={styles.textInput}
+              />
+            </View>
+            <TouchableNativeFeedback
+              onPress={this.onLogin}
+              background={TouchableNativeFeedback.SelectableBackground()}>
+              <View style={styles.button}>
+                <Text style={styles.text}>로그인</Text>
+              </View>
+            </TouchableNativeFeedback>
           </View>
-        </TouchableWithoutFeedback>
-      </FCMController>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
