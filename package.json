@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json",
-    "android": "react-native run-android"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios"
   },
   "dependencies": {
     "immutable": "^3.8.2",
