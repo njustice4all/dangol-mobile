@@ -30,7 +30,7 @@ class FCMController extends Component {
       });
     }
 
-    // FCM.subscribeToTopic('/aty/boss');
+    FCM.subscribeToTopic('/topics/tiba-manage');
   };
 
   render() {
