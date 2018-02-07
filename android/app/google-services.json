@@ -1,27 +1,58 @@
 {
   "project_info": {
-    "project_number": "629044640612",
-    "firebase_url": "https://bossapp-aty.firebaseio.com",
-    "project_id": "bossapp-aty",
-    "storage_bucket": "bossapp-aty.appspot.com"
+    "project_number": "76696455357",
+    "firebase_url": "https://tiba-user.firebaseio.com",
+    "project_id": "tiba-user",
+    "storage_bucket": "tiba-user.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:629044640612:android:79b55248184d0602",
+        "mobilesdk_app_id": "1:76696455357:android:582ae1052286946c",
+        "android_client_info": {
+          "package_name": "kr.aty.tiba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76696455357-t2rhmlicoaacrej1tgactgq51qco7oqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4ukGp0s9N3Vqfih3YljVPMHE6ANBx2g8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76696455357:android:79b55248184d0602",
         "android_client_info": {
           "package_name": "kr.aty.bossapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "629044640612-6o2voemt63l2r8029tv5kmcucl9fvpna.apps.googleusercontent.com",
+          "client_id": "76696455357-t2rhmlicoaacrej1tgactgq51qco7oqo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD-3-yjUDgySc4bQJfYa0lTAU4U2e_lsig"
+          "current_key": "AIzaSyD4ukGp0s9N3Vqfih3YljVPMHE6ANBx2g8"
         }
       ],
       "services": {

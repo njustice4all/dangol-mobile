@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StackNavigator, addNavigationHelpers, NavigationActions } from 'react-navigation';
-import { View, Animated, Easing } from 'react-native';
+import { View, Animated, Easing, TouchableOpacity, Text, StatusBar, Image } from 'react-native';
+import Modal from 'react-native-modal';
 
 import SplashScreen from './SplashScreen';
 import Auth from './Auth';
@@ -111,7 +112,7 @@ const Root = StackNavigator(
 
 class AppNavigator extends Component {
   render() {
-    const { dispatch, nav } = this.props;
+    const { dispatch, nav, isModalVisible } = this.props;
 
     const screenProps = {};
     const navigation = addNavigationHelpers({ dispatch, state: nav });
@@ -119,6 +120,28 @@ class AppNavigator extends Component {
     return (
       <View style={{ flex: 1 }}>
         <Root navigation={navigation} screenProps={screenProps} />
+        <Modal isVisible={isModalVisible}>
+          <StatusBar hidden />
+          <View style={{ width: 322, backgroundColor: 'white', alignSelf: 'center' }}>
+            <View style={{ padding: 20 }}>
+              <Image style={{ width: 322, height: 337 }} source={require('./popup.png')} />
+            </View>
+            <View
+              style={{
+                backgroundColor: '#fe931f',
+                position: 'absolute',
+                width: '100%',
+                bottom: 0,
+                padding: 20,
+              }}>
+              <TouchableOpacity
+                onPress={() => dispatch({ type: 'firebase/RECEIVE_MESSAGE' })}
+                style={{ width: '100%', height: '100%' }}>
+                <Text style={{ color: 'white', alignSelf: 'center' }}>확인</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }
@@ -126,6 +149,7 @@ class AppNavigator extends Component {
 
 export default connect(state => ({
   nav: state.get('nav'),
+  isModalVisible: state.getIn(['order', 'popupVisible']),
 }))(AppNavigator);
 
 export const router = Root.router;

@@ -3504,7 +3504,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@15.6.0, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -3583,6 +3583,12 @@ react-devtools-core@3.0.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-animatable@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.2.4.tgz#b5fb7657e8f6edadbc26697057a327fb920b3039"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -3602,6 +3608,13 @@ react-native-drawer-layout@1.3.2:
 react-native-fcm@^11.3.1:
   version "11.3.1"
   resolved "https://registry.yarnpkg.com/react-native-fcm/-/react-native-fcm-11.3.1.tgz#eae59deb3972d19fdd8d8b52da18984377276e84"
+
+react-native-modal@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-5.0.0.tgz#d9a056e68a985678d9545fce38dcc1ac3299ba31"
+  dependencies:
+    prop-types "15.6.0"
+    react-native-animatable "^1.2.4"
 
 react-native-tab-view@^0.0.74:
   version "0.0.74"

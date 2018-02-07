@@ -25,6 +25,7 @@ const StateRecord = Record({
     error: false,
     msg: '',
   }),
+  popupVisible: false,
 });
 
 const getNewLists = (state, action) => {
@@ -65,6 +66,8 @@ export const order = (state = new StateRecord(), action) => {
       return errorOnFetching(state, action);
     case 'order/SET_STATUS':
       return _setStatus(state, action);
+    case 'firebase/RECEIVE_MESSAGE':
+      return state.set('popupVisible', !state.get('popupVisible'));
     default:
       return state;
   }

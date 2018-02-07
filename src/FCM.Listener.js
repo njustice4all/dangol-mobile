@@ -12,15 +12,33 @@ AsyncStorage.getItem('lastNotification').then(data => {
   }
 });
 
+const showLocalNotification = async (notification, notif) => {
+  await FCM.presentLocalNotification({
+    vibrate: 500,
+    title: notification.title,
+    body: notification.body,
+    priority: 'high',
+    show_in_foreground: true,
+    group: 'test',
+    status: notif.status,
+    my_custom_data: notification.payload,
+  });
+};
+
 export const registerKilledListener = () => {
   FCM.on(FCMEvent.Notification, notif => {
     AsyncStorage.setItem('lastNotification', JSON.stringify(notif));
   });
 };
 
-export const registerAppListener = () => {
-  FCM.on(FCMEvent.Notification, notif => {
-    console.log(notif);
+export const registerAppListener = async receiveMessage => {
+  FCM.on(FCMEvent.Notification, async notif => {
+    try {
+      receiveMessage();
+      await showLocalNotification(JSON.parse(notif.custom_notification), notif);
+    } catch (error) {
+      console.log(error);
+    }
 
     if (notif.local_notification) {
       console.log('local: ', notif);

@@ -36,3 +36,5 @@ export const initGetToken = id => async dispatch => {
     dispatch(getTokenError({ error: true }));
   }
 };
+
+export const receiveMessage = () => ({ type: 'firebase/RECEIVE_MESSAGE' });

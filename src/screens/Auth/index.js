@@ -7,6 +7,7 @@ import {
   TouchableNativeFeedback,
   Keyboard,
   TouchableWithoutFeedback,
+  Image,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
@@ -50,6 +51,7 @@ class Auth extends Component {
               </View>
             </TouchableNativeFeedback>
           </View>
+          <Image style={{ width: 249, height: 347, position: 'absolute', bottom: -100, right: 0 }} source={require('./main.png')} />
         </View>
       </TouchableWithoutFeedback>
     );

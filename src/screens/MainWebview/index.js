@@ -10,6 +10,7 @@ import {
 import { NavigationActions } from 'react-navigation';
 
 import PostMessageController from '../../PostMessageController';
+import FCMController from '../../FCM.Controller';
 import SideMenu from '../../components/SideMenu';
 
 import { registerKilledListener } from '../../FCM.Listener';
@@ -82,6 +83,20 @@ class MainWebview extends Component<{}> {
         )}>
         <View style={{ flex: 1 }}>
           <StatusBar hidden />
+          {/*<FCMController webview={this.webview}>
+            <WebView
+              ref={webview => (this.webview = webview)}
+              source={{ uri }}
+              startInLoadingState
+              renderLoading={Loading}
+              scalesPageToFit={false}
+              javaScriptEnabled
+              bounces={false}
+              onMessage={_onMessage}
+              onNavigationStateChange={this._onNavigationStateChange}
+              style={{ flex: 1 }}
+            />
+      </FCMController>*/}
           <WebView
             ref={webview => (this.webview = webview)}
             source={{ uri }}

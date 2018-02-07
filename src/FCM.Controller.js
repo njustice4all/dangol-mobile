@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import FCM, { FCMEvent } from 'react-native-fcm';
 
 import { registerKilledListener, registerAppListener } from './FCM.Listener';
-import { setToken } from './actions/fcm';
+import { setToken, receiveMessage } from './actions/fcm';
 
 registerKilledListener();
 
 class FCMController extends Component {
   componentDidMount = async () => {
-    registerAppListener();
+    registerAppListener(this.props.receiveMessage);
 
     try {
       const result = await FCM.requestPermissions({ badge: false, sound: true, alert: true });
@@ -21,6 +21,7 @@ class FCMController extends Component {
     }
 
     FCM.getFCMToken().then(token => {
+      console.log(token);
       this.props.setToken(token);
     });
 
@@ -40,4 +41,5 @@ class FCMController extends Component {
 
 export default connect(null, dispatch => ({
   setToken: token => dispatch(setToken(token)),
+  receiveMessage: () => dispatch(receiveMessage()),
 }))(FCMController);
