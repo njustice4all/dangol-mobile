@@ -37,8 +37,6 @@ class ActionDispatcher {
         try {
           const { id, autoLogin } = msg.payload.user;
 
-          console.log(msg.payload.user);
-
           if (autoLogin) {
             await AsyncStorage.setItem('user', JSON.stringify({ id, autoLogin }));
           } else {

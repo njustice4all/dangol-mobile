@@ -5,8 +5,6 @@ import { NavigationActions } from 'react-navigation';
 
 import { initialApp } from '../../actions/auth';
 
-import FCMController from '../../FCM.Controller';
-
 class SplashScreen extends Component {
   componentDidMount = () => {
     // TODO:
@@ -15,7 +13,7 @@ class SplashScreen extends Component {
     this.props.initialApp();
     this.timeout = setTimeout(() => {
       this.afterInitialized();
-    }, 2000);
+    }, 1500);
   };
 
   componentWillUnmount = () => {
@@ -32,17 +30,16 @@ class SplashScreen extends Component {
     // } else {
     //   navigateTo('Auth');
     // }
+
     navigateTo('Main');
   };
 
   render() {
     return (
-      <FCMController>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <StatusBar hidden />
-          <Text>앱 로딩</Text>
-        </View>
-      </FCMController>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <StatusBar hidden />
+        <Text>앱 로딩</Text>
+      </View>
     );
   }
 }

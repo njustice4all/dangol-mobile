@@ -23,6 +23,18 @@ class MainWebview extends Component<{}> {
     isLoading: true,
   };
 
+  componentDidMount = () => {
+    // const auth = this.props.auth.toJS();
+    // this.webview.postMessage(
+    //   JSON.stringify({
+    //     payload: {
+    //       type: 'auth/SET_AUTH_FROM_MOBILE',
+    //       payload: { ...auth },
+    //     },
+    //   })
+    // );
+  };
+
   componentWillReceiveProps = nextProps => {
     if (nextProps.drawer) {
       // this.drawer.openDrawer();
@@ -57,7 +69,7 @@ class MainWebview extends Component<{}> {
 
   render() {
     const { uri, isLoading } = this.state;
-    const { _onMessage, fetching, closeDrawer, navigation } = this.props;
+    const { _onMessage, fetching, closeDrawer, navigation, auth } = this.props;
 
     const Loading = () => {
       return (
@@ -84,18 +96,20 @@ class MainWebview extends Component<{}> {
         )}>
         <View style={{ flex: 1 }}>
           <StatusBar hidden />
-          <WebView
-            ref={webview => (this.webview = webview)}
-            source={{ uri }}
-            startInLoadingState
-            renderLoading={Loading}
-            scalesPageToFit={false}
-            javaScriptEnabled
-            bounces={false}
-            onMessage={_onMessage}
-            onNavigationStateChange={this._onNavigationStateChange}
-            style={{ flex: 1 }}
-          />
+          <FCMController topic={auth.get('topic')}>
+            <WebView
+              ref={webview => (this.webview = webview)}
+              source={{ uri }}
+              startInLoadingState
+              renderLoading={Loading}
+              scalesPageToFit={false}
+              javaScriptEnabled
+              bounces={false}
+              onMessage={_onMessage}
+              onNavigationStateChange={this._onNavigationStateChange}
+              style={{ flex: 1 }}
+            />
+          </FCMController>
         </View>
       </DrawerLayoutAndroid>
     );

@@ -70,6 +70,8 @@ export const auth = (state = new StateRecord(), action) => {
     case 'auth/AUTO_LOGIN':
       console.log('need auto login');
       return state;
+    case 'firebase/SET_TOKEN':
+      return state.set('token', action.token);
     default:
       return state;
   }

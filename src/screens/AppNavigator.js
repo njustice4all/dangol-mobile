@@ -41,24 +41,24 @@ const Root = StackNavigator(
         header: null,
       },
     },
-    // Auth: {
-    //   screen: Auth,
-    //   navigationOptions: {
-    //     title: '로그인',
-    //     header: null,
-    //     headerStyle: {
-    //       backgroundColor: '#505050',
-    //       elevation: 0,
-    //       shadowOpacity: 0,
-    //     },
-    //     headerTitleStyle: {
-    //       color: 'white',
-    //       alignSelf: 'center',
-    //       fontWeight: '100',
-    //       fontSize: 18,
-    //     },
-    //   },
-    // },
+    Auth: {
+      screen: Auth,
+      navigationOptions: {
+        title: '로그인',
+        header: null,
+        headerStyle: {
+          backgroundColor: '#505050',
+          elevation: 0,
+          shadowOpacity: 0,
+        },
+        headerTitleStyle: {
+          color: 'white',
+          alignSelf: 'center',
+          fontWeight: '100',
+          fontSize: 18,
+        },
+      },
+    },
     Main: {
       screen: MainWebview,
       navigationOptions: {

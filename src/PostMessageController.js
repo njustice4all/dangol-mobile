@@ -41,6 +41,7 @@ const PostMessageController = MainWebview => {
     state => ({
       authFetching: state.getIn(['auth', 'isFetching']),
       orderFetching: state.getIn(['order', 'isFetching']),
+      auth: state.get('auth'),
     }),
     dispatch => ({
       logout: MainWebview => {

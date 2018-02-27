@@ -30,8 +30,12 @@ class FCMController extends Component {
         console.log('APNS TOKEN (getFCMToken)', token);
       });
     }
+  };
 
-    FCM.subscribeToTopic('/topics/tiba-manage');
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.topic !== this.props.topic) {
+      FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
+    }
   };
 
   render() {
@@ -39,7 +43,12 @@ class FCMController extends Component {
   }
 }
 
-export default connect(null, dispatch => ({
-  setToken: token => dispatch(setToken(token)),
-  receiveMessage: () => dispatch(receiveMessage()),
-}))(FCMController);
+export default connect(
+  state => ({
+    topic: state.getIn(['auth', 'topic']),
+  }),
+  dispatch => ({
+    setToken: token => dispatch(setToken(token)),
+    receiveMessage: () => dispatch(receiveMessage()),
+  })
+)(FCMController);
