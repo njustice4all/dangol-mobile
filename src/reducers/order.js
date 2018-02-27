@@ -33,8 +33,10 @@ const getNewLists = (state, action) => {
 };
 
 const errorOnFetching = (state, action) => {
-  const errors = new Map({ error: action.errors.error, msg: action.errors.msg });
-  return state.withMutations(s => s.set('isFetching', false).set('status', errors));
+  // const errors = new Map({ error: action.errors.error, msg: action.errors.msg });
+  const errors = new Map({ error: action.errors.error, msg: '안됨' });
+  // return state.withMutations(s => s.set('isFetching', false).set('status', errors));
+  return state.withMutations(s => s.set('isFetching', false));
 };
 
 const _setStatus = (state, action) => {

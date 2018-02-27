@@ -34,8 +34,10 @@ export const registerKilledListener = () => {
 export const registerAppListener = async receiveMessage => {
   FCM.on(FCMEvent.Notification, async notif => {
     try {
-      receiveMessage();
-      await showLocalNotification(JSON.parse(notif.custom_notification), notif);
+      // receiveMessage();
+
+      console.log(notif);
+      // await showLocalNotification(JSON.parse(notif.custom_notification), notif);
     } catch (error) {
       console.log(error);
     }

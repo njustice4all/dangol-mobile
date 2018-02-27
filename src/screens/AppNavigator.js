@@ -41,24 +41,24 @@ const Root = StackNavigator(
         header: null,
       },
     },
-    Auth: {
-      screen: Auth,
-      navigationOptions: {
-        title: '로그인',
-        header: null,
-        headerStyle: {
-          backgroundColor: '#505050',
-          elevation: 0,
-          shadowOpacity: 0,
-        },
-        headerTitleStyle: {
-          color: 'white',
-          alignSelf: 'center',
-          fontWeight: '100',
-          fontSize: 18,
-        },
-      },
-    },
+    // Auth: {
+    //   screen: Auth,
+    //   navigationOptions: {
+    //     title: '로그인',
+    //     header: null,
+    //     headerStyle: {
+    //       backgroundColor: '#505050',
+    //       elevation: 0,
+    //       shadowOpacity: 0,
+    //     },
+    //     headerTitleStyle: {
+    //       color: 'white',
+    //       alignSelf: 'center',
+    //       fontWeight: '100',
+    //       fontSize: 18,
+    //     },
+    //   },
+    // },
     Main: {
       screen: MainWebview,
       navigationOptions: {
@@ -137,7 +137,9 @@ class AppNavigator extends Component {
               <TouchableOpacity
                 onPress={() => dispatch({ type: 'firebase/RECEIVE_MESSAGE' })}
                 style={{ width: '100%', height: '100%' }}>
-                <Text style={{ color: 'white', alignSelf: 'center' }}>확인</Text>
+                <View>
+                  <Text style={{ color: 'white', alignSelf: 'center' }}>확인</Text>
+                </View>
               </TouchableOpacity>
             </View>
           </View>

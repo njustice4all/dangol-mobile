@@ -1,9 +1,17 @@
 import { Record, Map, fromJS } from 'immutable';
 
 const StateRecord = Record({
-  name: '',
+  id: '',
   address: '',
   token: '',
+  session: '',
+  secret: '',
+  siteId: '',
+  siteName: '',
+  siteUserId: '',
+  role: 'ceo',
+  first: '1',
+  topic: '',
   coords: new Map({
     lat: '',
     lng: '',
@@ -17,24 +25,31 @@ const StateRecord = Record({
 });
 
 const getInfo = (state, action) => {
-  const info = fromJS(action.info);
-  return state.withMutations(s =>
-    s
-      .merge(info)
+  return state.withMutations(mutator =>
+    mutator
+      .set('secret', action.info.secret)
+      .set('role', action.info.role)
+      .set('first', action.info.first)
+      .set('session', action.info.sessId)
+      .set('siteId', action.info.siteId)
+      .set('id', action.user.id)
+      .set('siteName', action.info.siteName)
+      .set('siteUserId', action.info.siteUserId)
+      .set('topic', action.info.topic)
       .set('isFetching', false)
       .setIn(['status', 'login'], true)
   );
 };
 
-// geo정보까지 가져와야 로그인라우터 변경할것인가?
+// TODO: geo정보까지 가져와야 로그인라우터 변경할것인가?
 const setCoords = (state, action) => {
   const coords = fromJS(action.coords);
-  return state.withMutations(s => s.set('coords', coords).set('isFetching', false));
+  return state.withMutations(mutator => mutator.set('coords', coords).set('isFetching', false));
 };
 
 const errorOnFetching = (state, action) => {
   const errors = new Map({ error: action.errors.error, msg: action.errors.msg, login: false });
-  return state.withMutations(s => s.set('isFetching', false).set('status', errors));
+  return state.withMutations(mutator => mutator.set('isFetching', false).set('status', errors));
 };
 
 export const auth = (state = new StateRecord(), action) => {
@@ -49,10 +64,12 @@ export const auth = (state = new StateRecord(), action) => {
     case 'auth/REQ_SIGNIN_ERROR':
     case 'geo/GET_COORDS_ERROR':
       return errorOnFetching(state, action);
-    case 'firebase/SET_TOKEN':
-      return state.set('token', action.token);
     case 'auth/LOGOUT':
-      return state.setIn(['status', 'login'], false);
+      // return state.setIn(['status', 'login'], false);
+      return new StateRecord();
+    case 'auth/AUTO_LOGIN':
+      console.log('need auto login');
+      return state;
     default:
       return state;
   }

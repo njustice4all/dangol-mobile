@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Linking, AsyncStorage } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 
 type DispatcherType = (
   msg: {
@@ -13,18 +14,24 @@ type DispatcherType = (
     },
   },
   dispatch: (Object) => void,
+  navigation: Object,
   callback: () => void
 ) => ?Promise<void>;
 
 class ActionDispatcher {
-  dispatcher: DispatcherType = async (msg, dispatch, callback) => {
+  dispatcher: DispatcherType = async (msg, dispatch, navigation, callback) => {
+    const navigateTo = routeName => {
+      navigation.dispatch(NavigationActions.navigate({ routeName }));
+    };
+
     if (msg.payload.type === 'ui/OPEN_POPUP' && msg.payload.ui === 'sideMenu') {
       callback();
     }
 
     switch (msg.payload.type) {
-      case 'link/OPEN_EXTERNAL_LINK':
-        Linking.openURL(msg.payload.uri).catch(err => console.error('An error occurred', err));
+      case 'ceo/NAVIGATE_TO_SHOP':
+        // Linking.openURL(msg.payload.uri).catch(err => console.error('An error occurred', err));
+        navigateTo('User');
         break;
       case 'auth/REQ_SIGNIN_SUCCESS':
         try {

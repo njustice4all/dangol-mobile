@@ -6,6 +6,7 @@ import {
   StatusBar,
   DrawerLayoutAndroid,
   AsyncStorage,
+  Platform,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
@@ -24,7 +25,7 @@ class MainWebview extends Component<{}> {
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.drawer) {
-      this.drawer.openDrawer();
+      // this.drawer.openDrawer();
     }
   };
 
@@ -83,20 +84,6 @@ class MainWebview extends Component<{}> {
         )}>
         <View style={{ flex: 1 }}>
           <StatusBar hidden />
-          {/*<FCMController webview={this.webview}>
-            <WebView
-              ref={webview => (this.webview = webview)}
-              source={{ uri }}
-              startInLoadingState
-              renderLoading={Loading}
-              scalesPageToFit={false}
-              javaScriptEnabled
-              bounces={false}
-              onMessage={_onMessage}
-              onNavigationStateChange={this._onNavigationStateChange}
-              style={{ flex: 1 }}
-            />
-      </FCMController>*/}
           <WebView
             ref={webview => (this.webview = webview)}
             source={{ uri }}

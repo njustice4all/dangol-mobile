@@ -27,11 +27,12 @@ class SplashScreen extends Component {
       this.props.navigation.dispatch(NavigationActions.navigate({ routeName }));
     };
 
-    if (this.props.authentication.isLogin) {
-      navigateTo('Main');
-    } else {
-      navigateTo('Auth');
-    }
+    // if (this.props.authentication.isLogin) {
+    //   navigateTo('Main');
+    // } else {
+    //   navigateTo('Auth');
+    // }
+    navigateTo('Main');
   };
 
   render() {
