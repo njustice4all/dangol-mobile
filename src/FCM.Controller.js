@@ -11,7 +11,7 @@ registerKilledListener();
 
 class FCMController extends Component {
   componentDidMount = async () => {
-    registerAppListener(this.props.receiveMessage);
+    // registerAppListener(this.props.receiveMessage);
 
     try {
       const result = await FCM.requestPermissions({ badge: false, sound: true, alert: true });
@@ -34,6 +34,7 @@ class FCMController extends Component {
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.topic !== this.props.topic) {
+      registerAppListener(this.props.receiveMessage, nextProps.webview);
       FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
     }
   };

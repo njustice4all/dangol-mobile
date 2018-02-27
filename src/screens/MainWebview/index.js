@@ -96,7 +96,7 @@ class MainWebview extends Component<{}> {
         )}>
         <View style={{ flex: 1 }}>
           <StatusBar hidden />
-          <FCMController topic={auth.get('topic')}>
+          <FCMController topic={auth.get('topic')} webview={this.webview}>
             <WebView
               ref={webview => (this.webview = webview)}
               source={{ uri }}

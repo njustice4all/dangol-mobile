@@ -31,12 +31,17 @@ export const registerKilledListener = () => {
   });
 };
 
-export const registerAppListener = async receiveMessage => {
+export const registerAppListener = async (receiveMessage, webview) => {
   FCM.on(FCMEvent.Notification, async notif => {
     try {
-      // receiveMessage();
+      receiveMessage();
 
-      console.log(notif);
+      webview.postMessage(
+        JSON.stringify({
+          type: 'firebase/MESSAGE_RECEIVED',
+        })
+      );
+      // console.log(notif);
       // await showLocalNotification(JSON.parse(notif.custom_notification), notif);
     } catch (error) {
       console.log(error);
