@@ -23,18 +23,6 @@ class MainWebview extends Component<{}> {
     isLoading: true,
   };
 
-  componentDidMount = () => {
-    // const auth = this.props.auth.toJS();
-    // this.webview.postMessage(
-    //   JSON.stringify({
-    //     payload: {
-    //       type: 'auth/SET_AUTH_FROM_MOBILE',
-    //       payload: { ...auth },
-    //     },
-    //   })
-    // );
-  };
-
   componentWillReceiveProps = nextProps => {
     if (nextProps.drawer) {
       // this.drawer.openDrawer();

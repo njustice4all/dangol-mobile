@@ -6,12 +6,29 @@ import WebViewAndroid from 'react-native-webview-android';
 import { CEO } from '../../constants';
 
 class UserWebview extends Component {
+  // componentDidMount = () => {
+  //   const auth = this.props.auth.toJS();
+
+  //   this.webview.postMessage(
+  //     JSON.stringify({
+  //       payload: {
+  //         type: 'auth/SET_AUTH_FROM_MOBILE',
+  //         payload: { ...auth },
+  //       },
+  //     })
+  //   );
+  // };
+
   render() {
+    const auth = this.props.auth.toJS();
+    const uri =
+      CEO + '?siteId=' + auth.siteId + '&session=' + auth.session + '&userId=' + auth.siteUserId;
+
     return (
       <View style={{ flex: 1 }}>
-        <WebViewAndroid
+        <WebView
           ref={webview => (this.webview = webview)}
-          source={{ uri: CEO }}
+          source={{ uri }}
           startInLoadingState
           scalesPageToFit={false}
           javaScriptEnabled
