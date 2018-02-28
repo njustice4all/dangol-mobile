@@ -29,7 +29,21 @@ class MainWebview extends Component<{}> {
     }
   };
 
-  _onNavigationStateChange = event => this.setState({ isLoading: event.loading });
+  _onNavigationStateChange = event => {
+    if (!event.loading) {
+      // const auth = this.props.auth.toJS();
+      // this.webview.postMessage(
+      //   JSON.stringify({
+      //     payload: {
+      //       type: 'auth/SET_AUTH_FROM_MOBILE',
+      //       payload: { ...auth },
+      //     },
+      //   })
+      // );
+    }
+
+    this.setState({ isLoading: event.loading });
+  };
 
   onChangeRoute = route => () => {
     this.webview.postMessage(

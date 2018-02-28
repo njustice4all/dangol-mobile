@@ -31,17 +31,28 @@ export const registerKilledListener = () => {
   });
 };
 
-export const registerAppListener = async (receiveMessage, webview) => {
+export const registerAppListener = async (receiveMessage, webview, alarm) => {
   FCM.on(FCMEvent.Notification, async notif => {
     try {
-      receiveMessage();
+      // receiveMessage();
 
       webview.postMessage(
         JSON.stringify({
           type: 'firebase/MESSAGE_RECEIVED',
         })
       );
-      // console.log(notif);
+
+      alarm.play(success => {
+        if (success) {
+          console.log('successfully finished playing');
+        } else {
+          console.log('playback failed due to audio decoding errors');
+          // reset the player to its uninitialized state (android only)
+          // this is the only option to recover after an error occured and use the player again
+          onSound.reset();
+        }
+      });
+
       // await showLocalNotification(JSON.parse(notif.custom_notification), notif);
     } catch (error) {
       console.log(error);

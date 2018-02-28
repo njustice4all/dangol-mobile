@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, View } from 'react-native';
 import { connect } from 'react-redux';
-
+import Sound from 'react-native-sound';
 import FCM, { FCMEvent } from 'react-native-fcm';
 
 import { registerKilledListener, registerAppListener } from './FCM.Listener';
@@ -11,8 +11,6 @@ registerKilledListener();
 
 class FCMController extends Component {
   componentDidMount = async () => {
-    // registerAppListener(this.props.receiveMessage);
-
     try {
       const result = await FCM.requestPermissions({ badge: false, sound: true, alert: true });
       console.log('permission result: ', result);
@@ -30,11 +28,19 @@ class FCMController extends Component {
         console.log('APNS TOKEN (getFCMToken)', token);
       });
     }
+
+    Sound.setCategory('Ambient');
+    this.alarm = new Sound('alarm.mp3', Sound.MAIN_BUNDLE, error => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+    });
   };
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.topic !== this.props.topic) {
-      registerAppListener(this.props.receiveMessage, nextProps.webview);
+      registerAppListener(this.props.receiveMessage, nextProps.webview, this.alarm);
       FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
     }
   };
