@@ -41,7 +41,10 @@ class FCMController extends Component {
   componentWillReceiveProps = nextProps => {
     if (nextProps.topic !== this.props.topic) {
       registerAppListener(this.props.receiveMessage, nextProps.webview, this.alarm);
-      FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
+
+      if (nextProps.topic) {
+        FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
+      }
     }
   };
 
