@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, WebView } from 'react-native';
+import { View, WebView, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import WebViewAndroid from 'react-native-webview-android';
 
@@ -26,6 +26,7 @@ class UserWebview extends Component {
 
     return (
       <View style={{ flex: 1 }}>
+        <StatusBar hidden={false} backgroundColor={'#505050'} />
         <WebView
           ref={webview => (this.webview = webview)}
           source={{ uri }}
