@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, StatusBar, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 
@@ -38,7 +38,7 @@ class SplashScreen extends Component {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <StatusBar hidden />
-        <Text>앱 로딩</Text>
+        <Image source={require('./loading.png')} style={{ width: '100%', height: '100%' }} />
       </View>
     );
   }
