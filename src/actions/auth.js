@@ -4,15 +4,15 @@ import { apiInitSignin } from '../api';
 export const initialApp = () => async dispatch => {
   dispatch({ type: 'INITIALIZE_APP' });
 
-  const user = await AsyncStorage.getItem('user').catch(error => {
-    dispatch({ type: 'auth/LOGIN_ERROR', payload: error });
-  });
+  // const user = await AsyncStorage.getItem('user').catch(error => {
+  //   dispatch({ type: 'auth/LOGIN_ERROR', payload: error });
+  // });
 
-  if (!user) {
-    dispatch({ type: 'auth/LOGIN_ERROR', payload: 'no user!' });
-  } else {
-    // dispatch({ type: 'auth/LOGIN_SUCCESS', payload: JSON.parse(user) });
-  }
+  // if (!user) {
+  //   dispatch({ type: 'auth/LOGIN_ERROR', payload: 'no user!' });
+  // } else {
+  //   // dispatch({ type: 'auth/LOGIN_SUCCESS', payload: JSON.parse(user) });
+  // }
 };
 
 /**

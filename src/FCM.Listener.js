@@ -33,6 +33,7 @@ export const registerKilledListener = () => {
 
 export const registerAppListener = async (receiveMessage, webview, alarm) => {
   FCM.on(FCMEvent.Notification, async notif => {
+    console.log(notif);
     try {
       // receiveMessage();
 
