@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import { View, WebView, StatusBar } from 'react-native';
+import { View, WebView, StatusBar, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 import WebViewAndroid from 'react-native-webview-android';
+import { NavigationActions } from 'react-navigation';
 
 import { CEO } from '../../constants';
 
 class UserWebview extends Component {
-  // componentDidMount = () => {
-  //   const auth = this.props.auth.toJS();
+  componentDidMount = () => {
+    BackHandler.addEventListener('hardwareBackPress', this._back);
+  };
 
-  //   this.webview.postMessage(
-  //     JSON.stringify({
-  //       payload: {
-  //         type: 'auth/SET_AUTH_FROM_MOBILE',
-  //         payload: { ...auth },
-  //       },
-  //     })
-  //   );
-  // };
+  componentWillUnmount = () => {
+    BackHandler.removeEventListener('hardwareBackPress', this._back);
+  };
+
+  _back = () => {
+    this.props.navigation.goBack();
+    return true;
+  };
 
   render() {
     const auth = this.props.auth.toJS();

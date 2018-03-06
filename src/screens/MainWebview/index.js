@@ -7,6 +7,8 @@ import {
   DrawerLayoutAndroid,
   AsyncStorage,
   Platform,
+  BackHandler,
+  ToastAndroid,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
@@ -21,6 +23,11 @@ class MainWebview extends Component<{}> {
   state = {
     uri: URI,
     isLoading: true,
+    backPressTime: 0,
+  };
+
+  componentDidMount = () => {
+    BackHandler.addEventListener('hardwareBackPress', this._back);
   };
 
   componentWillReceiveProps = nextProps => {
@@ -29,19 +36,29 @@ class MainWebview extends Component<{}> {
     }
   };
 
-  _onNavigationStateChange = event => {
-    if (!event.loading) {
-      // const auth = this.props.auth.toJS();
-      // this.webview.postMessage(
-      //   JSON.stringify({
-      //     payload: {
-      //       type: 'auth/SET_AUTH_FROM_MOBILE',
-      //       payload: { ...auth },
-      //     },
-      //   })
-      // );
+  componentWillUnmount = () => {
+    BackHandler.removeEventListener('hardwareBackPress', this._back);
+  };
+
+  _back = () => {
+    const { router: { location } } = this.props;
+    const now = new Date();
+
+    if (!location || location.pathname.split('/').includes('order')) {
+      ToastAndroid.show('한번 더 누르면 종료', ToastAndroid.SHORT);
+
+      if (now.getTime() - this.state.backPressTime < 1500) {
+        BackHandler.exitApp();
+      }
+    } else {
+      this.webview.postMessage(JSON.stringify({ type: '@@router/GO_BACK' }));
     }
 
+    this.setState({ backPressTime: now.getTime() });
+    return true;
+  };
+
+  _onNavigationStateChange = event => {
     this.setState({ isLoading: event.loading });
   };
 

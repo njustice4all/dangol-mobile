@@ -33,7 +33,11 @@ export const registerKilledListener = () => {
 
 export const registerAppListener = async (receiveMessage, webview, alarm) => {
   FCM.on(FCMEvent.Notification, async notif => {
-    console.log(notif);
+    if (notif.opened_from_tray) {
+      console.log('from tray: ', notif);
+      return;
+    }
+
     try {
       // receiveMessage();
 
@@ -61,10 +65,6 @@ export const registerAppListener = async (receiveMessage, webview, alarm) => {
 
     if (notif.local_notification) {
       console.log('local: ', notif);
-      return;
-    }
-    if (notif.opened_from_tray) {
-      console.log('from tray: ', notif);
       return;
     }
 
