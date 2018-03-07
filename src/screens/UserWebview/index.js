@@ -16,7 +16,9 @@ class UserWebview extends Component {
   };
 
   _back = () => {
-    this.props.navigation.goBack();
+    const { navigation, getMembers } = this.props;
+    navigation.goBack();
+    getMembers();
     return true;
   };
 
@@ -28,7 +30,7 @@ class UserWebview extends Component {
     return (
       <View style={{ flex: 1 }}>
         <StatusBar hidden={false} backgroundColor={'#505050'} />
-        <WebView
+        <WebViewAndroid
           ref={webview => (this.webview = webview)}
           source={{ uri }}
           startInLoadingState
@@ -42,7 +44,12 @@ class UserWebview extends Component {
   }
 }
 
-export default connect(state => ({
-  name: state.getIn(['auth', 'name']),
-  auth: state.get('auth'),
-}))(UserWebview);
+export default connect(
+  state => ({
+    name: state.getIn(['auth', 'name']),
+    auth: state.get('auth'),
+  }),
+  dispatch => ({
+    getMembers: () => dispatch({ type: 'web/GET_MEMBERS' }),
+  })
+)(UserWebview);

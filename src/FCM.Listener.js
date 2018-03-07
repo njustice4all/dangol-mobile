@@ -39,11 +39,13 @@ export const registerAppListener = async (receiveMessage, webview, alarm) => {
     }
 
     try {
+      const notification = JSON.parse(notif.custom_notification);
       // receiveMessage();
 
       webview.postMessage(
         JSON.stringify({
           type: 'firebase/MESSAGE_RECEIVED',
+          order: notification.order,
         })
       );
 

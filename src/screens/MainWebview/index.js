@@ -31,6 +31,16 @@ class MainWebview extends Component<{}> {
   };
 
   componentWillReceiveProps = nextProps => {
+    if (nextProps.authentication.getMembers === true) {
+      this.webview.postMessage(
+        JSON.stringify({
+          type: 'web/GET_MEMBERS',
+          payload: this.props.auth.get('siteId'),
+        })
+      );
+      this.props.resetMembers();
+    }
+
     if (nextProps.drawer) {
       // this.drawer.openDrawer();
     }
@@ -45,7 +55,7 @@ class MainWebview extends Component<{}> {
     const now = new Date();
 
     if (!location || location.pathname.split('/').includes('order')) {
-      ToastAndroid.show('한번 더 누르면 종료', ToastAndroid.SHORT);
+      ToastAndroid.show('종료하시려면 한번 더 누르세요!', ToastAndroid.SHORT);
 
       if (now.getTime() - this.state.backPressTime < 1500) {
         BackHandler.exitApp();

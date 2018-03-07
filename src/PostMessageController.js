@@ -43,8 +43,10 @@ const PostMessageController = MainWebview => {
       orderFetching: state.getIn(['order', 'isFetching']),
       auth: state.get('auth'),
       router: state.get('router'),
+      authentication: state.get('authentication'),
     }),
     dispatch => ({
+      resetMembers: () => dispatch({ type: 'web/RESET_MEMBERS' }),
       logout: MainWebview => {
         /**
          * 1. close drawer
