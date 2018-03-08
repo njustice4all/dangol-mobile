@@ -23,6 +23,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		20BB193420510F2B005D094B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20BB193320510F2B005D094B /* GoogleService-Info.plist */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -38,6 +39,7 @@
 		2E13E56818C447818844FCC8 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B98F2A8EB940FE921D6FB8 /* libRNVectorIcons.a */; };
 		387A97B3D13D4ECC9B741BF9 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4DFBCE24FD248F79AEC10C0 /* Foundation.ttf */; };
 		3AFF42B695E04D0C8B2F0C6B /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681CC55C2329408D981A9C43 /* SimpleLineIcons.ttf */; };
+		4DC84BE57BDC353B776862D0 /* libPods-BossApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6ED45913012CBEA2A5F91D /* libPods-BossApp.a */; };
 		574390284FEE4A57B9346CBC /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EFB5C571D5B48F88547BF0C /* Feather.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		7742244AB4AA4B47873FA3E9 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1314AC6726654205B92F0526 /* libRNFIRMessaging.a */; };
@@ -49,6 +51,7 @@
 		CB8BF9926C834CBC8F0B1D12 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDA4987455B0419384B5EE4C /* FontAwesome.ttf */; };
 		D2C5647B295B400D9A4D3FAF /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1078403FA8CC44C9A2EA6BD1 /* MaterialCommunityIcons.ttf */; };
 		D93D75E8C99D4C0AA932A019 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A931344E388A4F88A5D8B360 /* Octicons.ttf */; };
+		E2BCB38857DF366F31E40AF0 /* libPods-BossAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D338ECC4AB4F681C6C27FCE7 /* libPods-BossAppTests.a */; };
 		F3EE274770934B259C09189D /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF7BEDE419C4AC6A0EF7383 /* libRNSound.a */; };
 		F9D0E71296C04B3DAC09F250 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 224EAD8F94C94A7C98C81358 /* Entypo.ttf */; };
 /* End PBXBuildFile section */
@@ -347,6 +350,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BossAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BossAppTests.m; sourceTree = "<group>"; };
 		044E8077C60841FE81AA4348 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		0DC02E7992766389B44D796F /* Pods-BossAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BossAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BossAppTests/Pods-BossAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		1078403FA8CC44C9A2EA6BD1 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		1314AC6726654205B92F0526 /* libRNFIRMessaging.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFIRMessaging.a; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -361,11 +365,15 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		14857146E4454E6EB3626AF0 /* RNSound.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		1EFB5C571D5B48F88547BF0C /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		20BB192D2050F7F1005D094B /* BossApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BossApp.entitlements; path = BossApp/BossApp.entitlements; sourceTree = "<group>"; };
+		20BB193320510F2B005D094B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		224EAD8F94C94A7C98C81358 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* BossApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BossApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* BossApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BossApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		307BE5DD12C8F8F9D439A41A /* Pods-BossApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BossApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BossApp/Pods-BossApp.release.xcconfig"; sourceTree = "<group>"; };
 		4A448259711F4735AD020A9F /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
+		5CE9D6751A5190CAF10AB2C8 /* Pods-BossApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BossApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BossApp/Pods-BossApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		5EF7BEDE419C4AC6A0EF7383 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		6324B838063F40CC83CEB5D6 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
@@ -378,8 +386,11 @@
 		B8B86E6528B54D36B1226AA6 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		C1B98F2A8EB940FE921D6FB8 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		CFBA607675E548BFB99FF038 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		D338ECC4AB4F681C6C27FCE7 /* libPods-BossAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BossAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA4987455B0419384B5EE4C /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		DF8F5DA1E7E243C48ECA7D95 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		F739404E0336A29D6E55F7D7 /* Pods-BossAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BossAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BossAppTests/Pods-BossAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA6ED45913012CBEA2A5F91D /* libPods-BossApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BossApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				E2BCB38857DF366F31E40AF0 /* libPods-BossAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +423,7 @@
 				7742244AB4AA4B47873FA3E9 /* libRNFIRMessaging.a in Frameworks */,
 				2E13E56818C447818844FCC8 /* libRNVectorIcons.a in Frameworks */,
 				F3EE274770934B259C09189D /* libRNSound.a in Frameworks */,
+				4DC84BE57BDC353B776862D0 /* libPods-BossApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +534,7 @@
 		13B07FAE1A68108700A75B9A /* BossApp */ = {
 			isa = PBXGroup;
 			children = (
+				20BB192D2050F7F1005D094B /* BossApp.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -590,6 +604,7 @@
 		276DA8E147B84FD68A839642 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				20BB193320510F2B005D094B /* GoogleService-Info.plist */,
 				224EAD8F94C94A7C98C81358 /* Entypo.ttf */,
 				6324B838063F40CC83CEB5D6 /* EvilIcons.ttf */,
 				1EFB5C571D5B48F88547BF0C /* Feather.ttf */,
@@ -609,6 +624,8 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				FA6ED45913012CBEA2A5F91D /* libPods-BossApp.a */,
+				D338ECC4AB4F681C6C27FCE7 /* libPods-BossAppTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -672,6 +689,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				276DA8E147B84FD68A839642 /* Resources */,
 				20E528BE204FCF3600A3E90C /* Recovered References */,
+				A93A5F4EFCA240D8944EC136 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -687,6 +705,17 @@
 				2D02E4901E0B4A5D006451C7 /* BossApp-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A93A5F4EFCA240D8944EC136 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9D6751A5190CAF10AB2C8 /* Pods-BossApp.debug.xcconfig */,
+				307BE5DD12C8F8F9D439A41A /* Pods-BossApp.release.xcconfig */,
+				F739404E0336A29D6E55F7D7 /* Pods-BossAppTests.debug.xcconfig */,
+				0DC02E7992766389B44D796F /* Pods-BossAppTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		ADBDB9201DFEBF0600ED6528 /* Products */ = {
@@ -705,9 +734,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BossAppTests" */;
 			buildPhases = (
+				15C6E4681519D80BD0CF74F2 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				6DF1CAAAEC3C8237E70A9CF9 /* [CP] Embed Pods Frameworks */,
+				1DDBC0CD82FA6BE975D119F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -723,10 +755,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BossApp" */;
 			buildPhases = (
+				16B98B8C77BD711AF0BEC853 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				4AD735B7BF2CF95D6E54567A /* [CP] Embed Pods Frameworks */,
+				CEDA3EB1B8B8E1AE26D1EAF1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -789,6 +824,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = Q5GAR35SZ9;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1178,6 +1218,7 @@
 				D93D75E8C99D4C0AA932A019 /* Octicons.ttf in Resources */,
 				3AFF42B695E04D0C8B2F0C6B /* SimpleLineIcons.ttf in Resources */,
 				A5CCF671FC8A4A818706CF2D /* Zocial.ttf in Resources */,
+				20BB193420510F2B005D094B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1213,6 +1254,57 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		15C6E4681519D80BD0CF74F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BossAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16B98B8C77BD711AF0BEC853 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BossApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DDBC0CD82FA6BE975D119F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BossAppTests/Pods-BossAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1226,6 +1318,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		4AD735B7BF2CF95D6E54567A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BossApp/Pods-BossApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DF1CAAAEC3C8237E70A9CF9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BossAppTests/Pods-BossAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEDA3EB1B8B8E1AE26D1EAF1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BossApp/Pods-BossApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1294,6 +1431,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F739404E0336A29D6E55F7D7 /* Pods-BossAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = Q5GAR35SZ9;
@@ -1325,6 +1463,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DC02E7992766389B44D796F /* Pods-BossAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1353,8 +1492,10 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CE9D6751A5190CAF10AB2C8 /* Pods-BossApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BossApp/BossApp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = Q5GAR35SZ9;
@@ -1379,8 +1520,10 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 307BE5DD12C8F8F9D439A41A /* Pods-BossApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BossApp/BossApp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q5GAR35SZ9;
 				HEADER_SEARCH_PATHS = (

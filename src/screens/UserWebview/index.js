@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, WebView, StatusBar, BackHandler } from 'react-native';
+import { View, WebView, StatusBar, BackHandler, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import WebViewAndroid from 'react-native-webview-android';
 import { NavigationActions } from 'react-navigation';
@@ -26,6 +26,23 @@ class UserWebview extends Component {
     const auth = this.props.auth.toJS();
     const uri =
       CEO + '?siteId=' + auth.siteId + '&session=' + auth.session + '&userId=' + auth.siteUserId;
+
+    if (Platform.OS === 'ios') {
+      return (
+        <View style={{ flex: 1 }}>
+          <StatusBar hidden={false} backgroundColor={'#505050'} />
+          <WebView
+            ref={webview => (this.webview = webview)}
+            source={{ uri }}
+            startInLoadingState
+            scalesPageToFit={false}
+            javaScriptEnabled
+            bounces={false}
+            style={{ flex: 1 }}
+          />
+        </View>
+      );
+    }
 
     return (
       <View style={{ flex: 1 }}>

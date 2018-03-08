@@ -4,7 +4,7 @@ import {
   WebView,
   ActivityIndicator,
   StatusBar,
-  DrawerLayoutAndroid,
+  // DrawerLayoutAndroid,
   AsyncStorage,
   Platform,
   BackHandler,
@@ -108,8 +108,8 @@ class MainWebview extends Component<{}> {
       );
     };
 
-    return (
-      <DrawerLayoutAndroid
+    const drawer = {
+      /*<DrawerLayoutAndroid
         ref={drawer => (this.drawer = drawer)}
         drawerWidth={265}
         onDrawerClose={closeDrawer}
@@ -140,7 +140,27 @@ class MainWebview extends Component<{}> {
             />
           </FCMController>
         </View>
-      </DrawerLayoutAndroid>
+      </DrawerLayoutAndroid>*/
+    };
+
+    return (
+      <View style={{ flex: 1 }}>
+        <StatusBar hidden />
+        <FCMController topic={auth.get('topic')} webview={this.webview}>
+          <WebView
+            ref={webview => (this.webview = webview)}
+            source={{ uri }}
+            startInLoadingState
+            renderLoading={Loading}
+            scalesPageToFit={false}
+            javaScriptEnabled
+            bounces={false}
+            onMessage={_onMessage}
+            onNavigationStateChange={this._onNavigationStateChange}
+            style={{ flex: 1 }}
+          />
+        </FCMController>
+      </View>
     );
   }
 }
