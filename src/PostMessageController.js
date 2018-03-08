@@ -10,10 +10,11 @@ const PostMessageController = MainWebview => {
     state = { drawer: false };
 
     _onMessage = event => {
-      const { customDispatch, navigation } = this.props;
+      const { customDispatch, navigation, auth } = this.props;
       const msg = JSON.parse(event.nativeEvent.data);
+      const topic = auth.get('topic');
 
-      PostMessageActionDispatcher.dispatcher(msg, customDispatch, navigation, () => {
+      PostMessageActionDispatcher.dispatcher(msg, customDispatch, navigation, topic, () => {
         this.setState(prevState => ({ drawer: true }));
       });
     };

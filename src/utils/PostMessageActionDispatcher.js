@@ -3,6 +3,7 @@
 import React from 'react';
 import { Linking, AsyncStorage } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import FCM from 'react-native-fcm';
 
 type DispatcherType = (
   msg: {
@@ -15,11 +16,12 @@ type DispatcherType = (
   },
   dispatch: (Object) => void,
   navigation: Object,
+  topic: string,
   callback: () => void
 ) => ?Promise<void>;
 
 class ActionDispatcher {
-  dispatcher: DispatcherType = async (msg, dispatch, navigation, callback) => {
+  dispatcher: DispatcherType = async (msg, dispatch, navigation, topic, callback) => {
     const navigateTo = routeName => {
       navigation.dispatch(NavigationActions.navigate({ routeName }));
     };
@@ -46,6 +48,9 @@ class ActionDispatcher {
           console.log(error);
         }
 
+        break;
+      case 'auth/LOGOUT':
+        FCM.unsubscribeFromTopic(`/topics/${topic}`);
         break;
     }
 
