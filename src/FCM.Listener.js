@@ -1,4 +1,4 @@
-import { Platform, AsyncStorage } from 'react-native';
+import { Platform, AsyncStorage, Vibration } from 'react-native';
 import FCM, {
   FCMEvent,
   RemoteNotificationResult,
@@ -33,6 +33,7 @@ export const registerKilledListener = () => {
 
 export const registerAppListener = async (receiveMessage, webview, alarm) => {
   FCM.on(FCMEvent.Notification, async notif => {
+    console.log(notif);
     if (notif.opened_from_tray) {
       console.log('from tray: ', notif);
       return;
@@ -49,16 +50,18 @@ export const registerAppListener = async (receiveMessage, webview, alarm) => {
         })
       );
 
-      alarm.play(success => {
-        if (success) {
-          console.log('successfully finished playing');
-        } else {
-          console.log('playback failed due to audio decoding errors');
-          // reset the player to its uninitialized state (android only)
-          // this is the only option to recover after an error occured and use the player again
-          onSound.reset();
-        }
-      });
+      if (alarm) {
+        alarm.play(success => {
+          if (success) {
+            console.log('successfully finished playing');
+          } else {
+            console.log('playback failed due to audio decoding errors');
+            // reset the player to its uninitialized state (android only)
+            // this is the only option to recover after an error occured and use the player again
+            onSound.reset();
+          }
+        });
+      }
 
       // await showLocalNotification(JSON.parse(notif.custom_notification), notif);
     } catch (error) {
@@ -71,6 +74,7 @@ export const registerAppListener = async (receiveMessage, webview, alarm) => {
     }
 
     if (Platform.OS === 'ios') {
+      // Vibration.vibrate(500);
       switch (notif._notificationType) {
         case NotificationType.Remote:
           notif.finish(RemoteNotificationResult.NewData);

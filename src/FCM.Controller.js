@@ -29,13 +29,17 @@ class FCMController extends Component {
       });
     }
 
-    Sound.setCategory('Ambient');
-    this.alarm = new Sound('alarm.mp3', Sound.MAIN_BUNDLE, error => {
-      if (error) {
-        console.log('failed to load the sound', error);
-        return;
-      }
-    });
+    this.alarm = null;
+
+    if (Platform.OS === 'android') {
+      Sound.setCategory('Ambient');
+      this.alarm = new Sound('alarm.mp3', Sound.MAIN_BUNDLE, error => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          return;
+        }
+      });
+    }
   };
 
   componentWillReceiveProps = nextProps => {
@@ -46,6 +50,10 @@ class FCMController extends Component {
         FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
       }
     }
+  };
+
+  componentWillUnmount = () => {
+    console.log('kill listener here?');
   };
 
   render() {
