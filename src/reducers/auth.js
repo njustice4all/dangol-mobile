@@ -1,4 +1,5 @@
 import { Record, Map, fromJS } from 'immutable';
+import FCM from 'react-native-fcm';
 
 const StateRecord = Record({
   id: '',
@@ -66,10 +67,15 @@ export const auth = (state = new StateRecord(), action) => {
       return errorOnFetching(state, action);
     case 'auth/LOGOUT':
       // return state.setIn(['status', 'login'], false);
+      if (state.get('topic')) {
+        FCM.unsubscribeFromTopic(`/topics/${state.get('topic')}`);
+      }
       return new StateRecord();
     case 'auth/AUTO_LOGIN':
       console.log('need auto login');
       return state;
+    case 'auth/SET_FIRST':
+      return state.set('first', '0');
     case 'firebase/SET_TOKEN':
       return state.set('token', action.token);
     default:

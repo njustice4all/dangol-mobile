@@ -50,7 +50,7 @@ class ActionDispatcher {
 
         break;
       case 'auth/LOGOUT':
-        FCM.unsubscribeFromTopic(`/topics/${topic}`);
+        // FCM.unsubscribeFromTopic(`/topics/${topic}`);
         break;
     }
 
