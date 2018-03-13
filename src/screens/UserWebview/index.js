@@ -8,21 +8,23 @@ import { CEO } from '../../constants';
 
 class UserWebview extends Component {
   componentDidMount = () => {
-    if (Platform === 'android') {
-      BackHandler.addEventListener('hardwareBackPress', this._back);
-    }
+    BackHandler.addEventListener('hardwareBackPress', this._back);
+    // if (Platform === 'android') {
+    // }
   };
 
   componentWillUnmount = () => {
-    if (Platform === 'android') {
-      BackHandler.removeEventListener('hardwareBackPress', this._back);
-    }
+    BackHandler.removeEventListener('hardwareBackPress', this._back);
+    // if (Platform === 'android') {
+    // }
   };
 
   _back = () => {
+    // FIXME: 네비바의 버튼 뒤로가기 눌렀을때도 동작해야함
+    // web의 sidemenu에 props로 images와 이름만 넘길것인가?
     const { navigation, getMembers } = this.props;
-    navigation.goBack();
     getMembers();
+    navigation.goBack();
     return true;
   };
 

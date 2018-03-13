@@ -27,9 +27,9 @@ class MainWebview extends Component<{}> {
   };
 
   componentDidMount = () => {
-    if (Platform === 'android') {
-      BackHandler.addEventListener('hardwareBackPress', this._back);
-    }
+    BackHandler.addEventListener('hardwareBackPress', this._back);
+    // if (Platform === 'android') {
+    // }
   };
 
   componentWillReceiveProps = nextProps => {
@@ -49,9 +49,9 @@ class MainWebview extends Component<{}> {
   };
 
   componentWillUnmount = () => {
-    if (Platform === 'android') {
-      BackHandler.removeEventListener('hardwareBackPress', this._back);
-    }
+    BackHandler.removeEventListener('hardwareBackPress', this._back);
+    // if (Platform === 'android') {
+    // }
   };
 
   _back = () => {
