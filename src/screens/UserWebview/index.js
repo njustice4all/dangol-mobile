@@ -26,6 +26,13 @@ class UserWebview extends Component {
     return true;
   };
 
+  _onMessage = event => {
+    const msg = JSON.parse(event.nativeEvent.data);
+    if (msg.payload.type === '@@router/GO_BACK') {
+      this.props.navigation.goBack();
+    }
+  };
+
   render() {
     const auth = this.props.auth.toJS();
     const uri =
@@ -42,6 +49,7 @@ class UserWebview extends Component {
             scalesPageToFit={false}
             javaScriptEnabled
             bounces={false}
+            onMessage={this._onMessage}
             style={{ flex: 1 }}
           />
         </View>

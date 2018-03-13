@@ -49,6 +49,9 @@ class ActionDispatcher {
         }
 
         break;
+      case '@@router/GO_BACK':
+        navigation.goBack();
+        break;
       case 'auth/LOGOUT':
         // FCM.unsubscribeFromTopic(`/topics/${topic}`);
         break;
