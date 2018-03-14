@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableNativeFeedback } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
 import { IconBack } from './Icons';
@@ -13,13 +13,11 @@ class Back extends Component {
 
   render() {
     return (
-      <TouchableNativeFeedback
-        onPress={this._onPress}
-        background={TouchableNativeFeedback.Ripple('rgba(0,0,0,.2)', true)}>
+      <TouchableOpacity onPress={this._onPress}>
         <View style={{ width: 50, paddingLeft: 10 }}>
           <IconBack size={30} />
         </View>
-      </TouchableNativeFeedback>
+      </TouchableOpacity>
     );
   }
 }

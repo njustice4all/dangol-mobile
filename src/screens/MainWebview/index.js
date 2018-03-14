@@ -28,8 +28,6 @@ class MainWebview extends Component<{}> {
 
   componentDidMount = () => {
     BackHandler.addEventListener('hardwareBackPress', this._back);
-    // if (Platform === 'android') {
-    // }
   };
 
   componentWillReceiveProps = nextProps => {
@@ -50,8 +48,6 @@ class MainWebview extends Component<{}> {
 
   componentWillUnmount = () => {
     BackHandler.removeEventListener('hardwareBackPress', this._back);
-    // if (Platform === 'android') {
-    // }
   };
 
   _back = () => {
