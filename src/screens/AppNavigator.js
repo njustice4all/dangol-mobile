@@ -8,6 +8,7 @@ import SplashScreen from './SplashScreen';
 import Auth from './Auth';
 import MainWebview from './MainWebview';
 import UserWebview from './UserWebview';
+import Back from '../components/Back';
 
 const transitionConfig = () => {
   return {
@@ -67,7 +68,7 @@ const Root = StackNavigator(
     },
     User: {
       screen: UserWebview,
-      navigationOptions: {
+      navigationOptions: ({ navigation }) => ({
         title: '업소 정보 수정',
         headerTintColor: 'white',
         headerStyle: {
@@ -79,7 +80,8 @@ const Root = StackNavigator(
           fontWeight: '100',
           fontSize: 18,
         },
-      },
+        headerLeft: <Back navigation={navigation} />,
+      }),
     },
   },
   {

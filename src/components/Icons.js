@@ -17,3 +17,7 @@ export const IconChat = ({ size = 12 }) => (
 export const IconBell = ({ size = 12 }) => <Octicons name="bell" size={size} color="white" />;
 
 export const IconPerson = ({ size = 12 }) => <Octicons name="person" size={size} color="white" />;
+
+export const IconBack = ({ size = 12 }) => (
+  <Ionicons name="md-arrow-back" size={size} color="white" />
+);
