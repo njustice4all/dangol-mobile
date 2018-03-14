@@ -58,7 +58,7 @@ class MainWebview extends Component<{}> {
     const { router: { location } } = this.props;
     const now = new Date();
 
-    if (!location || location.pathname.split('/').includes('order')) {
+    if (!location || location.pathname.split('/').includes('order') || location.pathname === '/') {
       ToastAndroid.show('종료하시려면 한번 더 누르세요!', ToastAndroid.SHORT);
 
       if (now.getTime() - this.state.backPressTime < 1500) {
