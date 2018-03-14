@@ -37,7 +37,7 @@ class UserWebview extends Component {
     if (Platform.OS === 'ios') {
       return (
         <View style={{ flex: 1 }}>
-          <StatusBar hidden={false} backgroundColor={'#505050'} />
+          <StatusBar hidden backgroundColor={'#505050'} />
           <WebView
             ref={webview => (this.webview = webview)}
             source={{ uri }}

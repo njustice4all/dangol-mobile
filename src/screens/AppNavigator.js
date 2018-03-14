@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StackNavigator, addNavigationHelpers, NavigationActions } from 'react-navigation';
-import { View, Animated, Easing, TouchableOpacity, Text, StatusBar, Image } from 'react-native';
+import {
+  View,
+  Animated,
+  Easing,
+  TouchableOpacity,
+  Text,
+  StatusBar,
+  Image,
+  Platform,
+} from 'react-native';
 import Modal from 'react-native-modal';
 
 import SplashScreen from './SplashScreen';
@@ -9,6 +18,7 @@ import Auth from './Auth';
 import MainWebview from './MainWebview';
 import UserWebview from './UserWebview';
 import Back from '../components/Back';
+import CustomHeader from '../components/CustomHeader';
 
 const transitionConfig = () => {
   return {
@@ -69,6 +79,7 @@ const Root = StackNavigator(
     User: {
       screen: UserWebview,
       navigationOptions: ({ navigation }) => ({
+        header: Platform.OS === 'ios' ? <CustomHeader navigation={navigation} /> : null,
         title: '업소 정보 수정',
         headerTintColor: 'white',
         headerStyle: {
