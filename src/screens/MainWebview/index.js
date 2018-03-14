@@ -5,7 +5,6 @@ import {
   ActivityIndicator,
   StatusBar,
   // DrawerLayoutAndroid,
-  AsyncStorage,
   Platform,
   BackHandler,
   ToastAndroid,
@@ -146,20 +145,19 @@ class MainWebview extends Component<{}> {
     return (
       <View style={{ flex: 1 }}>
         <StatusBar hidden />
-        <FCMController topic={auth.get('topic')} webview={this.webview}>
-          <WebView
-            ref={webview => (this.webview = webview)}
-            source={{ uri }}
-            startInLoadingState
-            renderLoading={Loading}
-            scalesPageToFit={false}
-            javaScriptEnabled
-            bounces={false}
-            onMessage={_onMessage}
-            onNavigationStateChange={this._onNavigationStateChange}
-            style={{ flex: 1 }}
-          />
-        </FCMController>
+        <FCMController topic={auth.get('topic')} webview={this.webview} />
+        <WebView
+          ref={webview => (this.webview = webview)}
+          source={{ uri }}
+          startInLoadingState
+          renderLoading={Loading}
+          scalesPageToFit={false}
+          javaScriptEnabled
+          bounces={false}
+          onMessage={_onMessage}
+          onNavigationStateChange={this._onNavigationStateChange}
+          style={{ flex: 1 }}
+        />
       </View>
     );
   }

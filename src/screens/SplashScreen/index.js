@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Image } from 'react-native';
+import { View, Text, StatusBar, Image, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 
 import { initialApp } from '../../actions/auth';
 
 class SplashScreen extends Component {
-  componentDidMount = () => {
+  componentDidMount = async () => {
     // TODO:
     // initialApp(set token, loading) 해야함
     // initialApp() 대신 token받아오고 몇초후에 afterInitialized실행 - good
+
+    await AsyncStorage.getItem('user').then(info => {
+      if (info) {
+        const userInfo = JSON.parse(info);
+
+        this.props.addTopic(userInfo.topic);
+      }
+    });
+
     this.props.initialApp();
     this.timeout = setTimeout(() => {
       this.afterInitialized();
@@ -50,5 +59,6 @@ export default connect(
   }),
   dispatch => ({
     initialApp: () => dispatch(initialApp()),
+    addTopic: topic => dispatch({ type: 'auth/ADD_TOPIC', topic }),
   })
 )(SplashScreen);

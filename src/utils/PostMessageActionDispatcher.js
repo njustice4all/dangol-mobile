@@ -12,6 +12,7 @@ type DispatcherType = (
       type: string,
       uri: string,
       user: Object,
+      info: Object,
     },
   },
   dispatch: (Object) => void,
@@ -40,7 +41,7 @@ class ActionDispatcher {
           const { id, autoLogin } = msg.payload.user;
 
           if (autoLogin) {
-            await AsyncStorage.setItem('user', JSON.stringify({ id, autoLogin }));
+            await AsyncStorage.setItem('user', JSON.stringify({ ...msg.payload.info }));
           } else {
             AsyncStorage.clear();
           }

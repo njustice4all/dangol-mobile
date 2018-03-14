@@ -1,3 +1,4 @@
+import { AsyncStorage } from 'react-native';
 import { Record, Map, fromJS } from 'immutable';
 import FCM from 'react-native-fcm';
 
@@ -65,8 +66,11 @@ export const auth = (state = new StateRecord(), action) => {
     case 'auth/REQ_SIGNIN_ERROR':
     case 'geo/GET_COORDS_ERROR':
       return errorOnFetching(state, action);
+    case 'auth/ADD_TOPIC':
+      return state.set('topic', action.topic);
     case 'auth/LOGOUT':
-      // return state.setIn(['status', 'login'], false);
+      AsyncStorage.clear();
+
       if (state.get('topic')) {
         FCM.unsubscribeFromTopic(`/topics/${state.get('topic')}`);
       }
