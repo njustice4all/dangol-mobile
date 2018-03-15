@@ -40,11 +40,13 @@ class FCMController extends Component {
         }
       });
     }
-
-    FCM.subscribeToTopic(`/topics/${this.props.topic}`);
   };
 
   componentWillReceiveProps = nextProps => {
+    if (nextProps.topic) {
+      FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
+    }
+
     if (this.props.webview !== nextProps.webview) {
       registerAppListener(this.props.receiveMessage, nextProps.webview, this.alarm);
     }
