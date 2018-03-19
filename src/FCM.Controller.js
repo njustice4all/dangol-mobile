@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, View } from 'react-native';
+import { Platform, View, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import Sound from 'react-native-sound';
 import FCM, { FCMEvent } from 'react-native-fcm';
@@ -43,8 +43,11 @@ class FCMController extends Component {
   };
 
   componentWillReceiveProps = nextProps => {
-    if (nextProps.topic) {
+    if (nextProps.topic && nextProps.push) {
+      console.log('구독');
       FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
+    } else if (!nextProps.push) {
+      console.log('해지');
     }
 
     if (this.props.webview !== nextProps.webview) {
@@ -64,6 +67,7 @@ class FCMController extends Component {
 export default connect(
   state => ({
     topic: state.getIn(['auth', 'topic']),
+    push: state.getIn(['setting', 'push']),
   }),
   dispatch => ({
     setToken: token => dispatch(setToken(token)),

@@ -43,7 +43,8 @@ class ActionDispatcher {
           if (autoLogin) {
             await AsyncStorage.setItem('user', JSON.stringify({ ...msg.payload.info }));
           } else {
-            AsyncStorage.clear();
+            // AsyncStorage.clear();
+            // AsyncStorage.removeItem('user');
           }
         } catch (error) {
           console.log(error);

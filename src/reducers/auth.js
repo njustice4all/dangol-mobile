@@ -69,7 +69,15 @@ export const auth = (state = new StateRecord(), action) => {
     case 'auth/ADD_TOPIC':
       return state.set('topic', action.topic);
     case 'auth/LOGOUT':
-      AsyncStorage.clear();
+      // AsyncStorage.clear();
+      try {
+        // AsyncStorage.getAllKeys().then(AsyncStorage.mulitRemove);
+        if (AsyncStorage.getItem('user')) {
+          AsyncStorage.removeItem('user');
+        }
+      } catch (error) {
+        console.log(error);
+      }
 
       if (state.get('topic')) {
         FCM.unsubscribeFromTopic(`/topics/${state.get('topic')}`);

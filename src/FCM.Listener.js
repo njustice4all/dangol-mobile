@@ -7,23 +7,11 @@ import FCM, {
 } from 'react-native-fcm';
 
 AsyncStorage.getItem('lastNotification').then(data => {
+  console.log(data);
   if (data) {
     AsyncStorage.removeItem('lastNotification');
   }
 });
-
-const showLocalNotification = async (notification, notif) => {
-  await FCM.presentLocalNotification({
-    vibrate: 500,
-    title: notification.title,
-    body: notification.body,
-    priority: 'high',
-    show_in_foreground: true,
-    group: 'test',
-    status: notif.status,
-    my_custom_data: notification.payload,
-  });
-};
 
 export const registerKilledListener = () => {
   FCM.on(FCMEvent.Notification, notif => {
@@ -33,15 +21,14 @@ export const registerKilledListener = () => {
 
 export const registerAppListener = async (receiveMessage, webview, alarm) => {
   FCM.on(FCMEvent.Notification, async notif => {
-    console.log(notif);
-    if (notif.opened_from_tray) {
-      console.log('from tray: ', notif);
-      return;
-    }
+    // console.log(notif);
+    // if (notif.opened_from_tray) {
+    //   console.log('from tray: ', notif);
+    //   return;
+    // }
 
     try {
       const notification = JSON.parse(notif.custom_notification);
-      // receiveMessage();
 
       webview.postMessage(
         JSON.stringify({
@@ -62,8 +49,6 @@ export const registerAppListener = async (receiveMessage, webview, alarm) => {
           }
         });
       }
-
-      // await showLocalNotification(JSON.parse(notif.custom_notification), notif);
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +76,6 @@ export const registerAppListener = async (receiveMessage, webview, alarm) => {
 
   FCM.on(FCMEvent.RefreshToken, token => {
     console.log('TOKEN (refreshUnsubscribe)', token);
-    this.props.onChangeToken(token);
   });
 
   FCM.enableDirectChannel();
