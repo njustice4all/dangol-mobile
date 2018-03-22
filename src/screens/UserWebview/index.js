@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { View, WebView, StatusBar, BackHandler, Platform } from 'react-native';
+import { View, WebView, StatusBar, BackHandler, Platform, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import WebViewAndroid from 'react-native-webview-android';
 import { NavigationActions } from 'react-navigation';
+
+import SafeAreaBottom from '../../components/SafeAreaBottom';
 
 import { CEO } from '../../constants';
 
@@ -36,19 +38,22 @@ class UserWebview extends Component {
 
     if (Platform.OS === 'ios') {
       return (
-        <View style={{ flex: 1 }}>
-          <StatusBar hidden backgroundColor={'#505050'} />
-          <WebView
-            ref={webview => (this.webview = webview)}
-            source={{ uri }}
-            startInLoadingState
-            scalesPageToFit={false}
-            javaScriptEnabled
-            bounces={false}
-            onMessage={this._onMessage}
-            style={{ flex: 1 }}
-          />
-        </View>
+        <SafeAreaView style={{ flex: 1 }}>
+          <View style={{ flex: 1 }}>
+            <StatusBar hidden={Platform.OS === 'ios' ? false : true} />
+            <WebView
+              ref={webview => (this.webview = webview)}
+              source={{ uri }}
+              startInLoadingState
+              scalesPageToFit={false}
+              javaScriptEnabled
+              bounces={false}
+              onMessage={this._onMessage}
+              style={{ flex: 1 }}
+            />
+          </View>
+          <SafeAreaBottom />
+        </SafeAreaView>
       );
     }
 

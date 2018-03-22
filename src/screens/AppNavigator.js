@@ -48,18 +48,6 @@ const navigationOptions = navigation => {
   if (Platform.OS === 'ios') {
     return {
       header: <CustomHeader navigation={navigation} />,
-      title: '업소 정보 수정',
-      headerTintColor: 'white',
-      headerStyle: {
-        backgroundColor: '#505050',
-        elevation: 0,
-        shadowOpacity: 0,
-      },
-      headerTitleStyle: {
-        fontWeight: '100',
-        fontSize: 18,
-      },
-      headerLeft: <Back navigation={navigation} />,
     };
   }
 

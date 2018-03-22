@@ -48,6 +48,7 @@ class FCMController extends Component {
       FCM.subscribeToTopic(`/topics/${nextProps.topic}`);
     } else if (!nextProps.push) {
       console.log('해지');
+      FCM.unsubscribeFromTopic(`/topics/${nextProps.topic}`);
     }
 
     if (this.props.webview !== nextProps.webview) {

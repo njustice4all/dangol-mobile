@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, Image, AsyncStorage } from 'react-native';
+import { View, Text, StatusBar, Image, AsyncStorage, Platform, SafeAreaView } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 
@@ -45,10 +45,12 @@ class SplashScreen extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <StatusBar hidden />
-        <Image source={require('./loading.png')} style={{ width: '100%', height: '100%' }} />
-      </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fe931f' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <StatusBar hidden={Platform.OS === 'ios' ? false : true} />
+          <Image source={require('./loading.png')} style={{ width: '100%', height: '100%' }} />
+        </View>
+      </SafeAreaView>
     );
   }
 }

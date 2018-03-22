@@ -8,12 +8,14 @@ import {
   Platform,
   BackHandler,
   ToastAndroid,
+  SafeAreaView,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 import PostMessageController from '../../PostMessageController';
 import FCMController from '../../FCM.Controller';
 import SideMenu from '../../components/SideMenu';
+import SafeAreaBottom from '../../components/SafeAreaBottom';
 
 import { registerKilledListener } from '../../FCM.Listener';
 import { URI } from '../../constants';
@@ -97,7 +99,19 @@ class MainWebview extends Component<{}> {
 
   render() {
     const { uri, isLoading } = this.state;
-    const { _onMessage, fetching, closeDrawer, navigation, auth } = this.props;
+    const {
+      _onMessage,
+      fetching,
+      closeDrawer,
+      navigation,
+      auth,
+      router: { location },
+    } = this.props;
+
+    let backgroundColor = '#505050';
+    if (location === null || location.pathname === '/') {
+      backgroundColor = '#fff';
+    }
 
     const Loading = () => {
       return (
@@ -143,22 +157,25 @@ class MainWebview extends Component<{}> {
     };
 
     return (
-      <View style={{ flex: 1 }}>
-        <StatusBar hidden />
-        <FCMController topic={auth.get('topic')} webview={this.webview} />
-        <WebView
-          ref={webview => (this.webview = webview)}
-          source={{ uri }}
-          startInLoadingState
-          renderLoading={Loading}
-          scalesPageToFit={false}
-          javaScriptEnabled
-          bounces={false}
-          onMessage={_onMessage}
-          onNavigationStateChange={this._onNavigationStateChange}
-          style={{ flex: 1 }}
-        />
-      </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor }}>
+        <View style={{ flex: 1 }}>
+          <StatusBar hidden={Platform.OS === 'ios' ? false : true} />
+          <FCMController topic={auth.get('topic')} webview={this.webview} />
+          <WebView
+            ref={webview => (this.webview = webview)}
+            source={{ uri }}
+            startInLoadingState
+            renderLoading={Loading}
+            scalesPageToFit={false}
+            javaScriptEnabled
+            bounces={false}
+            onMessage={_onMessage}
+            onNavigationStateChange={this._onNavigationStateChange}
+            style={{ flex: 1 }}
+          />
+        </View>
+        <SafeAreaBottom />
+      </SafeAreaView>
     );
   }
 }
